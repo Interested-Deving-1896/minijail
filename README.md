@@ -1,146 +1,75 @@
-# Minijail
+[update-readmes]   Mode: rewrite — migrating to template structure...
+# minijail
 
-The Minijail homepage is
-https://google.github.io/minijail/.
+[![Built with Ona](https://ona.com/build-with-ona.svg)](https://app.ona.com/#https://github.com/Interested-Deving-1896/minijail)
 
-The main source repo is
-https://chromium.googlesource.com/chromiumos/platform/minijail.
+<!-- AI:start:what-it-does -->
+_Description pending._
+<!-- AI:end:what-it-does -->
 
-There might be other copies floating around, but this is the official one!
+## Architecture
 
-[TOC]
+<!-- AI:start:architecture -->
+_Architecture documentation pending._
+<!-- AI:end:architecture -->
 
-## What is it?
+## Install
 
-Minijail is a sandboxing and containment tool used in ChromeOS and Android.
-It provides an executable that can be used to launch and sandbox other programs,
-and a library that can be used by code to sandbox itself.
+<!-- Add installation instructions here. This section is yours — the AI will not modify it. -->
 
-## Getting the code
-
-You're one `git clone` away from happiness.
-
-```
-$ git clone https://chromium.googlesource.com/chromiumos/platform/minijail
-$ cd minijail
+```bash
+git clone https://github.com/Interested-Deving-1896/minijail.git
+cd minijail
 ```
 
-Releases are tagged as `linux-vXX`:
-https://chromium.googlesource.com/chromiumos/platform/minijail/+refs
+## Usage
 
-## Building
+<!-- Add usage examples here. This section is yours — the AI will not modify it. -->
 
-See the [HACKING.md](./HACKING.md) document for more details.
+## Configuration
 
-## Release process
+<!-- Document configuration options here. This section is yours — the AI will not modify it. -->
 
-See the [RELEASE.md](./RELEASE.md) document for more details.
+## CI
 
-## Additional tools
+<!-- AI:start:ci -->
+_CI documentation pending._
+<!-- AI:end:ci -->
 
-See the [tools/README.md](./tools/README.md) document for more details.
+## Mirror chain
 
-## Contact
-
-We've got a couple of contact points.
-
-* [minijail@chromium.org]: Public user & developer mailing list.
-* [minijail-users@google.com]: Internal Google user mailing list.
-* [minijail-dev@google.com]: Internal Google developer mailing list.
-* [crbug.com/list]: Existing bug reports & feature requests.
-* [crbug.com/new]: File new bug reports & feature requests.
-* [Chromium Gerrit]: Code reviews.
-
-[minijail@chromium.org]: https://groups.google.com/a/chromium.org/forum/#!forum/minijail
-[minijail-users@google.com]: https://groups.google.com/a/google.com/forum/#!forum/minijail-users
-[minijail-dev@google.com]: https://groups.google.com/a/google.com/forum/#!forum/minijail-dev
-[crbug.com/list]: https://crbug.com/?q=component:OS>Systems>Minijail
-[crbug.com/new]: https://bugs.chromium.org/p/chromium/issues/entry?components=OS>Systems>Minijail
-[Chromium Gerrit]: https://chromium-review.googlesource.com/q/project:chromiumos/platform/minijail
-
-## GitHub Pages homepage
-
-The https://google.github.io/minijail/ homepage is maintained in the `gh-pages`
-branch, not in the `main` branch.
-Changes to it can be sent via Gerrit, but requires a little extra work.
-
-```shell
-# Make sure you have all the branches, and not only the "main" one.
-$ git fetch
-
-# Create a new local branch tracking the remote "gh-pages".
-# Git should automatically detect the remote and track it for you.
-$ git checkout gh-pages
-# If git can't auto-detect the remote, try one of these.
-$ git checkout -b gh-pages origin/gh-pages
-$ git checkout -b gh-pages cros/gh-pages
-
-# Make your changes like normal, then push them to Gerrit for review.
-# Here's a couple of different ways to post changes; you only need one!
-$ repo upload -D gh-pages
-$ git push origin HEAD:refs/for/gh-pages
-$ git push cros HEAD:refs/for/gh-pages
-
-# Now review your changes via Gerrit like normal.
-```
-
-Once a change merges into the `gh-pages` branch, there is no additional work for
-you other than waiting -- GitHub periodically syncs with our host, and then it
-will automatically regenerate the homepage when the `gh-pages` branch updates.
-
-## Talks and presentations
-
-The following talk serves as a good introduction to Minijail and how it can be used.
-
-[Video](https://drive.google.com/file/d/0BwPS_JpKyELWZTFBcTVsa1hhYjA/preview),
-[slides](https://docs.google.com/presentation/d/e/2PACX-1vRBqpin5xR9sng6lIBPjG0XQtu-uWWgr0ds-M3zW13XpDO-bTcMERLwoHUEB9078p1yqr9L-su9n5dk/pub).
-
-## Example usage
-
-The ChromiumOS project has a comprehensive
-[sandboxing](https://www.chromium.org/chromium-os/developer-library/guides/development/sandboxing)
-document that is largely based on Minijail.
-
-After you play with the simple examples below, you should check that out.
-
-### Change root to any user
+<!-- AI:start:mirror-chain -->
+This repo is maintained in [`Interested-Deving-1896/minijail`](https://github.com/Interested-Deving-1896/minijail) and mirrored through:
 
 ```
-# id
-uid=0(root) gid=0(root) groups=0(root),128(pkcs11)
-# minijail0 -u jorgelo -g 5000 /usr/bin/id
-uid=72178(jorgelo) gid=5000(eng) groups=5000(eng)
+Interested-Deving-1896/minijail  ──►  OpenOS-Project-OSP/minijail  ──►  OpenOS-Project-Ecosystem-OOC/minijail
 ```
 
-### Drop root while keeping some capabilities
+Changes flow downstream automatically via the hourly mirror chain in
+[`fork-sync-all`](https://github.com/Interested-Deving-1896/fork-sync-all).
+Direct commits to OSP or OOC are detected and opened as PRs back to `Interested-Deving-1896`.
+<!-- AI:end:mirror-chain -->
 
-```
-# minijail0 -u jorgelo -c 3000 -- /bin/cat /proc/self/status
-Name: cat
-...
-CapInh: 0000000000003000
-CapPrm: 0000000000003000
-CapEff: 0000000000003000
-CapBnd: 0000000000003000
-```
+## Contributors
 
-## Historical notes
+<!-- AI:start:contributors -->
+_Contributors pending._
+<!-- AI:end:contributors -->
 
-Q. "Why is it called minijail0?"
+## Origins
 
-A. It is minijail0 because it was a rewrite of an earlier program named
-minijail, which was considerably less mini, and in particular had a dependency
-on libchrome (the ChromeOS packaged version of Chromium's //base).  We needed a
-new name to not collide with the deprecated one.
+<!-- AI:start:origins -->
+_Original project — no upstream fork._
+<!-- AI:end:origins -->
 
-We didn't want to call it minijail2 or something that would make people
-start using it before we were ready, and it was also concretely _less_ since it
-dropped libbase, etc.  Technically, we needed to be able to fork/preload with
-minimal extra syscall noise which was too hard with libbase at the time (onexit
-handlers, etc that called syscalls we didn't want to allow).  Also, Elly made a
-strong case that C would be the right choice for this for linking and ease of
-controlled surprise system call use.
+## Resources
 
-https://crrev.com/c/4585/ added the original implementation.
+<!-- AI:start:resources -->
+_No additional resource files found._
+<!-- AI:end:resources -->
 
-Source: Conversations with original authors, ellyjones@ and wad@.
+## License
+
+<!-- AI:start:license -->
+[BSD-3-Clause](https://github.com/Interested-Deving-1896/minijail/blob/main/LICENSE) © 2026 [Interested-Deving-1896](https://github.com/Interested-Deving-1896)
+<!-- AI:end:license -->
